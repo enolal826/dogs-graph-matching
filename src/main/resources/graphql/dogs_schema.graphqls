@@ -1,0 +1,18 @@
+type Query {
+    listDogs(filter: DogFilter!): DogResponse
+}
+
+type Dog {
+    name: String!
+    age: Int!
+}
+
+type DogResponse {
+    content: [Dog!]
+    hasMore: Boolean!
+}
+
+input DogFilter {
+    offset: Int!
+    limit: Int!
+}

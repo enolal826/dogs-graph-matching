@@ -1,0 +1,3 @@
+package dogs.application.dogs.response
+
+class FindMatchingDogsResponse

@@ -1,5 +1,6 @@
 type Query {
-    listDogs(filter: DogFilter!): DogResponse
+    listDogs(filter: ListDogsFilter!): ListDogsResponse
+    findMatchingDogs(request: FindMatchingDogsRequest): [Dog!]
 }
 
 type Dog {
@@ -7,12 +8,16 @@ type Dog {
     age: Int!
 }
 
-type DogResponse {
-    content: [Dog!]
-    hasMore: Boolean!
-}
-
-input DogFilter {
+input ListDogsFilter {
     offset: Int!
     limit: Int!
+}
+
+type ListDogsResponse {
+    content: [Dog!]
+    hasMore: Boolean
+}
+
+input FindMatchingDogsRequest {
+    question: String!
 }

@@ -1,0 +1,3 @@
+package dogs.domain.exception
+
+class TimeAtHomeAnswerExternalInputNotValidException: DomainException()

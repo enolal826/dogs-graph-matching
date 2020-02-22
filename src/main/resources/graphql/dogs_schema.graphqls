@@ -1,6 +1,6 @@
 type Query {
     listDogs(filter: ListDogsFilter!): ListDogsResponse
-    findMatchingDogs(request: FindMatchingDogsRequest): [Dog!]
+    findMatchingDogs(request: FindMatchingDogsInput): [Dog!]
 }
 
 type Dog {
@@ -18,6 +18,7 @@ type ListDogsResponse {
     hasMore: Boolean
 }
 
-input FindMatchingDogsRequest {
-    question: String!
+input FindMatchingDogsInput {
+    homeType: String
+    timeAtHome: String
 }

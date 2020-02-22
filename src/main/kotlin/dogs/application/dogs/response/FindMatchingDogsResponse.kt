@@ -1,3 +1,5 @@
 package dogs.application.dogs.response
 
-class FindMatchingDogsResponse
+import dogs.domain.entity.Dog
+
+class FindMatchingDogsResponse(val matchingDogs: List<Dog>)

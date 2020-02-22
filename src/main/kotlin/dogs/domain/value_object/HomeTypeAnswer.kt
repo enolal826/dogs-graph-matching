@@ -3,10 +3,10 @@ package dogs.domain.value_object
 import dogs.domain.exception.HomeTypeAnswerExternalInputNotValidException
 
 enum class HomeTypeAnswer(val associatedTemperaments: List<TemperamentValue>){
-    SMALL_FLAT(listOf(TemperamentValue.LOYAL)),
-    BIG_FLAT(emptyList()),
-    HOUSE_WITH_YARD(emptyList()),
-    HOUSE_WITHOUT_YARD(emptyList());
+    SMALL_FLAT(listOf(TemperamentValue.QUIET, TemperamentValue.PATIENT, TemperamentValue.SOCIABLE, TemperamentValue.OBEDIENT)),
+    BIG_FLAT(listOf(TemperamentValue.ACTIVE, TemperamentValue.SOCIABLE, TemperamentValue.OBEDIENT)),
+    HOUSE_WITH_YARD(listOf(TemperamentValue.EASYGOING, TemperamentValue.CURIOUS, TemperamentValue.FEARLESS)),
+    HOUSE_WITHOUT_YARD(listOf(TemperamentValue.DOCILE));
 
     companion object Factory {
         fun fromExternalString(homeTypeAnswerExternalString: String): HomeTypeAnswer {

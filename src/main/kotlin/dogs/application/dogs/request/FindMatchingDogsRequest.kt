@@ -1,3 +1,3 @@
 package dogs.application.dogs.request
 
-class FindMatchingDogsRequest
+class FindMatchingDogsRequest(val homeTypeAnswer: String, val timeAtHomeAnswer: String)

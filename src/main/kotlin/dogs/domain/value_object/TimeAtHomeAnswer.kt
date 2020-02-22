@@ -3,9 +3,9 @@ package dogs.domain.value_object
 import dogs.domain.exception.TimeAtHomeAnswerExternalInputNotValidException
 
 enum class TimeAtHomeAnswer(val associatedTemperaments: List<TemperamentValue>) {
-    LESS_THAN_4_HOURS(emptyList()),
-    FROM_4_TO_9_HOURS(emptyList()),
-    MORE_THAN_10_HOURS(emptyList());
+    LESS_THAN_4_HOURS(listOf(TemperamentValue.INDEPENDENT, TemperamentValue.DOCILE, TemperamentValue.PATIENT, TemperamentValue.QUIET)),
+    FROM_4_TO_9_HOURS(listOf(TemperamentValue.STEADY, TemperamentValue.INDEPENDENT)),
+    MORE_THAN_10_HOURS(listOf(TemperamentValue.PLAYFUL, TemperamentValue.EASYGOING));
 
     companion object Factory {
         fun fromExternalString(timeAtHomeAnswerExternalString: String): TimeAtHomeAnswer {

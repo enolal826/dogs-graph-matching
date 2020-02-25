@@ -1,16 +1,14 @@
 package dogs.application.dogs
 
+import dogs.application.dogs.request.ListDogsRequest
+import dogs.application.dogs.response.ListDogsResponse
 import dogs.infrastructure.db.repository.DogRepository
-import dogs.infrastructure.http.graphql.query.response.DogResponse
 import org.springframework.stereotype.Service
 
 @Service
 class ListDogs(val dogRepository: DogRepository) {
-
-    fun list(): DogResponse? {
-        var dog = dogRepository.findByName("Toby")
-        println(dog.age)
-        return null
+    fun list(listDogsRequest: ListDogsRequest): ListDogsResponse {
+        return ListDogsResponse(dogRepository.findAllByOffsetAndLimit(listDogsRequest.offset, listDogsRequest.limit),
+                dogRepository.count().toInt())
     }
-
 }

@@ -9,4 +9,6 @@ import org.springframework.data.repository.query.Param
 interface DogRepository: Neo4jRepository<Dog, Int> {
     @Query("MATCH (d:Dog),(b:Breed),(t:Temperament) WHERE ((d)-->(t) OR (d)-->(b)-->(t)) AND t.value IN {temperamentValueList} RETURN d")
     fun findByTemperaments(@Param("temperamentValueList") temperamentValueList: List<TemperamentValue>): List<Dog>
+    @Query("MATCH (d:Dog) RETURN d SKIP {offset} LIMIT {limit}")
+    fun findAllByOffsetAndLimit(@Param("offset") offset: Int, @Param("limit") limit: Int): List<Dog>
 }

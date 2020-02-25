@@ -1,3 +1,3 @@
 package dogs.application.dogs.request
 
-class ListDogsRequest
+class ListDogsRequest(val offset: Int, val limit: Int)

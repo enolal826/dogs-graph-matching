@@ -1,5 +1,5 @@
 type Query {
-    listDogs(filter: ListDogsFilter!): ListDogsResponse
+    listDogs(filter: ListDogsFilter!): ListDogsOutput
     findMatchingDogs(request: FindMatchingDogsInput): [Dog!]
 }
 
@@ -9,13 +9,13 @@ type Dog {
 }
 
 input ListDogsFilter {
-    offset: Int!
-    limit: Int!
+    offset: Int
+    limit: Int
 }
 
-type ListDogsResponse {
+type ListDogsOutput {
     content: [Dog!]
-    hasMore: Boolean
+    totalCount: Int
 }
 
 input FindMatchingDogsInput {
